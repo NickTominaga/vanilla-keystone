@@ -1,26 +1,11 @@
 {
   "name": "@keystone-6/frontend-example-framework-nextjs-two-servers-frontend",
-  "description": "An example nextjs frontend",
+  "description": "An example vanilla javascript frontend",
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --port 8000",
-    "build": "next build",
-    "export": "next build && next export",
-    "start": "next start --port 8000"
+    "dev": "node server.js",
+    "start": "node server.js"
   },
-  "dependencies": {
-    "@keystone-6/document-renderer": "^1.1.2",
-    "@preconstruct/next": "^4.0.0",
-    "graphql": "^16.8.1",
-    "next": "^15.5.7",
-    "react": "^19.2.1",
-    "react-dom": "^19.2.1"
-  },
-  "devDependencies": {
-    "@types/node": "^20.14.10",
-    "@types/react": "^19.2.7",
-    "@types/react-dom": "^19.2.3",
-    "typescript": "^5.5.0"
-  }
+  "type": "module"
 }

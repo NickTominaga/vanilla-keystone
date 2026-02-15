@@ -1,6 +1,6 @@
 # Keystone Example - framework-nextjs-two-servers
 
-An example of a frontend nextjs server and backend API server
+An example of a vanilla JavaScript frontend server and backend Keystone API server.
 
 ## Running the example
 
@@ -12,7 +12,7 @@ Make sure you are at the root of the repo and install dependencies.
 pnpm install
 ```
 
-2. Start Keystone and Next.js servers
+2. Start Keystone and frontend servers
 
 Navigate from repo root to `examples/framework-nextjs-two-servers` and start the servers.
 
@@ -22,6 +22,6 @@ pnpm dev
 
 The GraphQL Server and Admin UI will start on [localhost:3000](http://localhost:3000).
 
-The Next.js server will start and the homepage will be served at [localhost:8000](http://localhost:8000).
+The vanilla frontend server will start and the homepage will be served at [localhost:8000](http://localhost:8000).
 
-_You can alternatively open two terminals and navigate to `examples/framework-nextjs-two-servers/keystone-server` and `examples/framwork-nextjs-two-servers/nextjs-frontend` and run `pnpm dev` separately._
+_You can alternatively open two terminals and navigate to `examples/framework-nextjs-two-servers/keystone-server` and `examples/framework-nextjs-two-servers/nextjs-frontend` and run `pnpm dev` separately._
