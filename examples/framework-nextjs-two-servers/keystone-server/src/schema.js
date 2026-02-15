@@ -3,8 +3,6 @@ import { allowAll } from '@keystone-6/core/access'
 import { relationship, text, timestamp } from '@keystone-6/core/fields'
 import { document } from '@keystone-6/fields-document'
 
-import type { Lists } from '.keystone/types'
-
 export const lists = {
   User: list({
     access: allowAll,
@@ -23,14 +21,13 @@ export const lists = {
         formatting: true,
         dividers: true,
         links: true,
-        // grid layout options
         layouts: [
-          [1, 1], // grid layout 1fr 1fr
-          [1, 1, 1], // grid layout 1fr 1fr 1fr
+          [1, 1],
+          [1, 1, 1],
         ],
       }),
       publishDate: timestamp({ defaultValue: { kind: 'now' } }),
       author: relationship({ ref: 'User.posts', many: false }),
     },
   }),
-} satisfies Lists
+}

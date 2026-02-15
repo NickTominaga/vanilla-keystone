@@ -1,11 +1,10 @@
 import fs from 'fs'
 import path from 'path'
-import { type Context } from '.keystone/types'
 
-const seedUsers = async (context: Context) => {
+const seedUsers = async context => {
   const { db } = context.sudo()
   const rawJSONData = fs.readFileSync(path.join(process.cwd(), './src/seed/users.json'), 'utf-8')
-  const seedUsers: any[] = JSON.parse(rawJSONData)
+  const seedUsers = JSON.parse(rawJSONData)
   const usersAlreadyInDatabase = await db.User.findMany({
     where: {
       email: { in: seedUsers.map(user => user.email) },
@@ -19,11 +18,10 @@ const seedUsers = async (context: Context) => {
   })
 }
 
-// seed posts and connect with users
-const seedPosts = async (context: Context) => {
+const seedPosts = async context => {
   const { db } = context.sudo()
   const rawJSONData = fs.readFileSync(path.join(process.cwd(), './src/seed/posts.json'), 'utf-8')
-  const seedPosts: any[] = JSON.parse(rawJSONData)
+  const seedPosts = JSON.parse(rawJSONData)
   const postsAlreadyInDatabase = await db.Post.findMany({
     where: {
       slug: { in: seedPosts.map(post => post.slug) },
@@ -37,9 +35,9 @@ const seedPosts = async (context: Context) => {
   })
 }
 
-export const seedDatabase = async (context: Context) => {
-  console.log(`🌱 Seeding database...`)
+export const seedDatabase = async context => {
+  console.log('🌱 Seeding database...')
   await seedUsers(context)
   await seedPosts(context)
-  console.log(`🌱 Seeding database completed.`)
+  console.log('🌱 Seeding database completed.')
 }

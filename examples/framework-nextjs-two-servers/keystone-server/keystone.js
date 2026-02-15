@@ -1,13 +1,11 @@
 import { config } from '@keystone-6/core'
-import type { KeystoneConfigPre } from '@keystone-6/core/types'
 import { seedDatabase } from './src/seed'
 import { lists } from './src/schema'
-import type { Context, TypeInfo } from '.keystone/types'
 
-const db: KeystoneConfigPre<TypeInfo>['db'] = {
+const db = {
   provider: 'sqlite',
-  url: process.env.DATABASE_URL || 'file:./database.db',
-  async onConnect(context: Context) {
+  url: 'file:./database.db',
+  async onConnect(context) {
     if (process.argv.includes('--seed-database')) {
       await seedDatabase(context)
     }
